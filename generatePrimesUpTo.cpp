@@ -36,12 +36,14 @@ vector<int> generatePrimesUpTo(int n) {
     for(boost::dynamic_bitset<>::size_type i = 0; i < sieve.size(); ++i) {
         if(sieve[i])
             continue;
+        
         offset = (i >> 1) + 1;
         value = 6 * offset + ((i & 1) ? 1 : -1);
         jump[0] = value + 2 * offset;
         jump[1] = value - 2 * offset;
         ptr = 0;
         position = i;
+        
         while(uint(position + jump[ptr]) < sieve.size()) {
             position += jump[ptr];
             sieve[position] = 1;
