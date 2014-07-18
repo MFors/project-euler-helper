@@ -8,7 +8,6 @@
 
 */
 
-#include <iostream>
 #include <vector>
 #include <boost/dynamic_bitset.hpp>
 using namespace std;
