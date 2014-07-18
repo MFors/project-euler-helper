@@ -29,7 +29,7 @@ vector<int> generatePrimesUpTo(int n) {
 
     size = (n / 6);
     difference = n - 6 * size;
-    size = 2 * size - (!difference ? 1 : 0) + (difference == 5 ? 1 : 0);
+    size = (size << 1) - (!difference ? 1 : 0) + (difference == 5 ? 1 : 0);
 
     boost::dynamic_bitset<> sieve(size);
 
