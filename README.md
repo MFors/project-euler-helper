@@ -28,9 +28,10 @@ Currently supports add, contains, containsPrefix. *contains* returns true if the
 // Default init (empty)
 project_euler_helper::Trie myPrefixTree;
 myPrefixTree.add("johnny");
-bool b_0 = myPrefixTree.contains("john"); // False
-b_0 = myPrefixTree.containsPrefix("john"); // True
-b_0 = myPrefixTree.containsPrefix("johnny") // True
+bool b = myPrefixTree.contains("john");   // False
+b = myPrefixTree.contains("johnny");      // True
+b = myPrefixTree.containsPrefix("john");  // True
+b = myPrefixTree.containsPrefix("johnny") // True
 
 // Build init (build from vector of strings)
 std::vector<std::string> strings{"one", "squid", "pluto"};
