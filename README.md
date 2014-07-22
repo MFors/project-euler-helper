@@ -30,6 +30,7 @@ Example use below.
 // Default init (empty)
 project_euler_helper::Trie myPrefixTree;
 myPrefixTree.insert("johnny");
+
 bool b = myPrefixTree.contains("john");   // False
 b = myPrefixTree.contains("johnny");      // True
 b = myPrefixTree.containsPrefix("john");  // True
