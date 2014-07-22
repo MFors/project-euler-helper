@@ -17,3 +17,20 @@ The aim of this project is to create a nice Python module using boost.python and
 | Trees | Trie | :white_check_mark: |
 | Numbers | Triangle Generator | Next Push |
 | Numbers | Mod Chain Multiply |  |
+
+
+#### Trees: Trie
+Currently supports add, contains, containsPrefix. *contains* returns true if the argument has been inserted into the trie, *containsPrefix* returns true if the argument is a substring to any inserted string. By definition any string is a substring of itself. Example use below.
+
+```c++
+// Default init (empty)
+project_euler_helper::Trie myPrefixTree;
+myPrefixTree.add("johnny");
+bool b_0 = myPrefixTree.contains("john"); // False
+b_0 = myPrefixTree.containsPrefix("john"); // True
+b_0 = myPrefixTree.containsPrefix("johnny") // True
+
+// Build init (build from vector of strings)
+std::vector<std::string> strings{"one", "squid", "pluto"};
+project_euler_helper::Trie myOtherPrefixTree{strings};
+```
