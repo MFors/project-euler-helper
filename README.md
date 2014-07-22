@@ -22,7 +22,7 @@ Build using *-std=c++11*.
 
 
 #### Trees: Trie
-Currently supports *insert*, *contains*, *containsPrefix* and *contentWithPrefix*. **contains(const std::string&)** returns true if the argument has been inserted into the trie while **containsPrefix(const std::string&)** returns true if the argument is a prefix of any inserted string. By definition any string is a substring of itself. Finally, **contentWithPrefix(const std::string&)** returns a *std::vector&lt;std::string&gt;* of all strings in the trie with the argument prefix. 
+Currently supports *insert*, *contains*, *containsPrefix* and *contentWithPrefix*. **contains(const std::string&)** returns true if the argument has been inserted into the trie while **containsPrefix(const std::string&)** returns true if the argument is a prefix of any inserted string. By definition any string is a prefix of itself. Finally, **contentWithPrefix(const std::string&)** returns a *std::vector&lt;std::string&gt;* of all strings in the trie with the argument prefix. 
 
 Example use below.
 
