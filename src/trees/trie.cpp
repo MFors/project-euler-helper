@@ -128,7 +128,7 @@ namespace project_euler_helper {
         return p_prefix.length() ? m_root -> find(p_prefix.c_str()).found: 1;
     }
 
-    std::vector<std::string> Trie::contentWithPrefix(const char* p_prefix) {
-        return m_root->contentWithPrefix(p_prefix);
+    std::vector<std::string> Trie::contentWithPrefix(const std::string& p_prefix) {
+        return m_root->contentWithPrefix(p_prefix.c_str());
     }
 }
