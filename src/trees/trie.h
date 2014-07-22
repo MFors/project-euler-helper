@@ -23,13 +23,13 @@ namespace project_euler_helper {
         std::map<char, TrieNode*> m_children;
         int m_count;
     public:
-        TrieNode() {};
+        TrieNode():m_count{0} {};
         TrieNode(const char* p_string);
         ~TrieNode();
 
-        void add(const char* p_string);
-
+        void insert(const char* p_string);
         PrefixSearchResult find(const char* p_string);
+        std::vector<std::string> contentWithPrefix(const char* p_prefix);
     };
 
     class Trie {
@@ -39,9 +39,15 @@ namespace project_euler_helper {
         Trie(const std::vector<std::string>& p_strings);
         ~Trie();
 
-        void add(const std::string& p_string);
+        void insert(const std::string& p_string);
 
         bool contains(const std::string& p_string);
         bool containsPrefix(const std::string& p_prefix);
+        std::vector<std::string> contentWithPrefix(const char* p_prefix);
+    };
+
+    struct PrefixQueueItem {
+        TrieNode* node;
+        std::string key;
     };
 }
