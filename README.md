@@ -20,7 +20,7 @@ The aim of this project is to create a nice Python module using boost.python and
 
 
 #### Trees: Trie
-Currently supports add, contains, containsPrefix. *contains* returns true if the argument has been inserted into the trie, *containsPrefix* returns true if the argument is a substring to any inserted string. By definition any string is a substring of itself. Example use below.
+Currently supports add, contains, containsPrefix. *contains* returns true if the argument has been inserted into the trie, *containsPrefix* returns true if the argument is a substring of any inserted string. By definition any string is a substring of itself. Example use below.
 
 ```c++
 // Default init (empty)
