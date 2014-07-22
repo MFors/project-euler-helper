@@ -2,6 +2,8 @@ Project-Euler-Helper
 ====================
 The aim of this project is to create a nice Python module using boost.python and C++ for performance-critical functions and structures used in conjunction with Project Euler solutions. Basically a **good-to-have** library of goodness.
 
+Build using *-std=c++11*.
+
 
 ##Feature Outline
 | Type | Function | Status |
