@@ -14,6 +14,6 @@ The aim of this project is to create a nice Python module using boost.python and
 | Combinatorics | ... | ... |
 | Trees | BST | |
 | Trees | R/B | |
-| Trees | Trie | |
+| Trees | Trie | :white_check_mark: |
 | Numbers | Triangle Generator | Next Push |
 | Numbers | Mod Chain Multiply |  |
