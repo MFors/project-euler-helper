@@ -43,7 +43,7 @@ namespace project_euler_helper {
 
         bool contains(const std::string& p_string);
         bool containsPrefix(const std::string& p_prefix);
-        std::vector<std::string> contentWithPrefix(const char* p_prefix);
+        std::vector<std::string> contentWithPrefix(const std::string& p_prefix);
     };
 
     struct PrefixQueueItem {
