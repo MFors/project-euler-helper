@@ -22,16 +22,24 @@ Build using *-std=c++11*.
 
 
 #### Trees: Trie
-Currently supports add, contains, containsPrefix. *contains* returns true if the argument has been inserted into the trie, *containsPrefix* returns true if the argument is a substring of any inserted string. By definition any string is a substring of itself. Example use below.
+Currently supports *insert*, *contains*, *containsPrefix* and *contentWithPrefix*. **contains(const std::string&)** returns true if the argument has been inserted into the trie while **containsPrefix(cosnt std::string&)** returns true if the argument is a substring of any inserted string. By definition any string is a substring of itself. Finally, **contentWithPrefix(const std::string&)** returns a *std::vector<std::string>* of all strings in the trie with the argument prefix. 
+
+Example use below.
 
 ```c++
 // Default init (empty)
 project_euler_helper::Trie myPrefixTree;
-myPrefixTree.add("johnny");
+myPrefixTree.insert("johnny");
 bool b = myPrefixTree.contains("john");   // False
 b = myPrefixTree.contains("johnny");      // True
 b = myPrefixTree.containsPrefix("john");  // True
 b = myPrefixTree.containsPrefix("johnny") // True
+
+myPrefixTree.insert("jay");
+myPrefixTree.insert("johan");
+
+std::vector<std::string> v = myPrefixTree.contentWithPrefix("j"); // {"johnny", "jay", "johan"}
+v = myPrefixTree.contentWithPrefix("jo");                         // {"johnny", "johan"}
 
 // Build init (build from vector of strings)
 std::vector<std::string> strings{"one", "squid", "pluto"};
