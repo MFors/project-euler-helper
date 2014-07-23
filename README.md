@@ -5,7 +5,7 @@ The aim of this project is to create a nice Python module using boost.python and
 Build using *-std=c++11*.
 
 #### Number
-Contains several useful integral functions, most are templated for integral input (return will always match input type if valid).
+Contains several useful integral functions, most are templated for integral input (return will always match input type if valid). Note that *pandigital* is defined in the project euler way, i.e. a number n such that the digits 1..len(n) < 10 are present exactly once.
 
 | Name | Arguments | Returns |
 | :---- | :---: | :--- |
