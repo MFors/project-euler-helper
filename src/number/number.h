@@ -27,5 +27,8 @@ namespace number {
     T binarySum(T n);
 
     bool isPandigital(int n, int length);
+    
+    template<typename T, EnableIf<std::is_integral<T>> ... >
+    bool isTriangleNumber(T n);
 }
 }
