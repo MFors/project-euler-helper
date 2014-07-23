@@ -23,7 +23,7 @@ b = project_euler_helper::number::isDecimalPalindrome(252);     // true
 b = project_euler_helper::number::isDecimalPalindrome(561165L); // true
 
 b = project_euler_helper::number::isBinaryPalindrome(25);           // false
-b = project_euler_helper::number::isDecimalPalindrome(6870778675L); // true
+b = project_euler_helper::number::isBinaryPalindrome(6870778675L); // true
 
 int n = project_euler_helper::number::digitalSum(1048);   // 13
 long m = project_euler_helper::number::digitalSum(1048L); // 13L
