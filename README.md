@@ -14,6 +14,7 @@ Contains several useful integral functions, most are templated for integral inpu
 |digitalSum | T (std::is_integral) | T |
 |binarySum | T (std::is_integral) | T |
 |isPandigital | int n, int length | bool |
+|isTriangleNumber | T (std::is_integral) | bool |
 
 ```c++
 // Example use
@@ -33,6 +34,9 @@ n = project_euler_helper::number::binarySum(1048); // 3
 b = project_euler_helper::number::isPandigital(123, 3);       // true
 b = project_euler_helper::number::isPandigital(1233, 4);      // false
 b = project_euler_helper::number::isPandigital(987654321, 9); // true
+
+b = project_euler_helper::number::isTriangleNumber(7);           // false
+b = project_euler_helper::number::isTriangleNumber(1533776805L); // true
 ```
 
 
