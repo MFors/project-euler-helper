@@ -4,21 +4,36 @@ The aim of this project is to create a nice Python module using boost.python and
 
 Build using *-std=c++11*.
 
+#### Number
+Contains several useful integral functions, most are templated for integral input (return will always match input type if valid).
 
-##Feature Outline
-| Type | Function | Status |
-| :------- | :---- | :----:|
-| Prime | Sieve | :white_check_mark: |
-| Prime | Factorization | Next Push |
-| Prime | Miller-Rabin | |
-| Divisor | Proper Divisors | Next Push |
-| Divisor | Totient Function | Next Push |
-| Combinatorics | ... | ... |
-| Trees | BST | |
-| Trees | R/B | |
-| Trees | Trie | :white_check_mark: |
-| Numbers | Triangle Generator | Next Push |
-| Numbers | Mod Chain Multiply |  |
+| Name | Arguments | Returns |
+| :---- | :---: | :--- |
+|isDecimalPalindrome | T (std::is_integral) | bool |
+|isBinaryPalindrome | T (std::is_integral) | bool |
+|digitalSum | T (std::is_integral) | T |
+|binarySum | T (std::is_integral) | T |
+|isPandigital | int n, int length | bool |
+
+```c++
+// Default init (empty)
+bool b;
+b = project_euler_helper::number::isDecimalPalindrome(25);      // false
+b = project_euler_helper::number::isDecimalPalindrome(252);     // true
+b = project_euler_helper::number::isDecimalPalindrome(561165L); // true
+
+b = project_euler_helper::number::isBinaryPalindrome(25);           // false
+b = project_euler_helper::number::isDecimalPalindrome(6870778675L); // true
+
+int n = project_euler_helper::number::digitalSum(1048);   // 13
+long m = project_euler_helper::number::digitalSum(1048L); // 13L
+
+n = project_euler_helper::number::binarySum(1048); // 3
+
+b = project_euler_helper::number::isPandigital(123, 3);       // true
+b = project_euler_helper::number::isPandigital(1233, 4);      // false
+b = project_euler_helper::number::isPandigital(987654321, 9); // true
+```
 
 
 #### Trees: Trie
