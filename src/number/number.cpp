@@ -69,5 +69,12 @@ namespace number {
         }
         return (k & ((1 << (length + 1)) - 1)) == 1;
     }
+    
+    template<typename T, EnableIf<std::is_integral<T>> ... >
+    bool isTriangleNumber(T n) {
+        T m = (n << 3) + 1;
+        double d = std::sqrt(m);
+        return (T)d == d && (m & 1);
+    }
 }
 }
