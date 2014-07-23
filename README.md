@@ -16,7 +16,7 @@ Contains several useful integral functions, most are templated for integral inpu
 |isPandigital | int n, int length | bool |
 
 ```c++
-// Default init (empty)
+// Example use
 bool b;
 b = project_euler_helper::number::isDecimalPalindrome(25);      // false
 b = project_euler_helper::number::isDecimalPalindrome(252);     // true
