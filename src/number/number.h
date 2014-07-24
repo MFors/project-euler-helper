@@ -29,6 +29,18 @@ namespace number {
     bool isPandigital(int n, int length);
     
     template<typename T, EnableIf<std::is_integral<T>> ... >
-    bool isTriangleNumber(T n);
+    T powMod(T p_base, T p_power, T p_mod);
+
+    template<typename T, EnableIf<std::is_integral<T>> ... >
+    bool rabinMiller(T p_n, int p_k);    
+    
+    template<typename T, EnableIf<std::is_integral<T>> ... >
+    bool isTriangleNumber(T p_n);
+    
+    template<typename T, EnableIf<std::is_integral<T>> ... >
+    bool isPentagonalNumber(T p_n);
+
+    template<typename T, EnableIf<std::is_integral<T>> ... >
+    bool isHexagonalNumber(T p_n);
 }
 }
