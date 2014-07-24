@@ -100,35 +100,83 @@ namespace project_euler_helper {
     /* ######## ------- TREE ------- ######## */
 
     Trie::Trie(const std::vector<std::string>& p_strings) {
-        if(p_strings.size()) {
-            m_root = new TrieNode(p_strings[0].c_str());
-            for(uint i = 1; i < p_strings.size(); ++i) {
-                m_root->insert(p_strings[i].c_str());
+        m_root = new TrieNode;
+        for(auto str: p_strings) {
+            m_root->insert(str.c_str());
+        }
+    }
+
+    Trie::Trie(const std::initializer_list<std::string>& p_list) {
+        m_root = new TrieNode;
+        for(auto str : p_list) {
+            m_root->insert(str.c_str());
+        }
+    }
+
+    Trie::~Trie() {
+        if(m_root)
+            delete m_root;
+    }
+
+
+    Trie::Trie(const Trie& p_trie) {
+        std::vector<std::string> strings = p_trie.contentWithPrefix("");
+        if(strings.size()) {
+            m_root = new TrieNode(strings[0].c_str());
+            for(uint i = 1; i < strings.size(); ++i) {
+                m_root->insert(strings[i].c_str());
             }
         } else {
             m_root = new TrieNode;
         }
     }
 
-    Trie::~Trie() {
+    Trie& Trie::operator=(const Trie& p_trie) {
         delete m_root;
+        std::vector<std::string> strings = p_trie.contentWithPrefix("");
+        if(strings.size()) {
+            m_root = new TrieNode(strings[0].c_str());
+            for(uint i = 1; i < strings.size(); ++i) {
+                m_root->insert(strings[i].c_str());
+            }
+        } else {
+            m_root = new TrieNode;
+        }
+        return *this;
+    }
+
+
+    Trie::Trie(Trie&& p_trie) {
+        m_root = p_trie.m_root;
+        p_trie.m_root = nullptr;
+    }
+
+    Trie& Trie::operator=(Trie&& p_trie) {
+        m_root = p_trie.m_root;
+        p_trie.m_root = nullptr;
+        return *this;
     }
 
     void Trie::insert(const std::string& p_string) {
         if(p_string.length())
             m_root->insert(p_string.c_str());
     }
+    void Trie::insert(const std::initializer_list<std::string>& p_list) {
+        for(auto str : p_list) {
+            m_root->insert(str.c_str());
+        }
+    }
 
-    bool Trie::contains(const std::string& p_string) {
+    bool Trie::contains(const std::string& p_string) const {
         return p_string.length() ? m_root-> find(p_string.c_str()).isLeaf : 0;
 
     }
 
-    bool Trie::containsPrefix(const std::string& p_prefix) {
+    bool Trie::containsPrefix(const std::string& p_prefix) const {
         return p_prefix.length() ? m_root -> find(p_prefix.c_str()).found: 1;
     }
 
-    std::vector<std::string> Trie::contentWithPrefix(const std::string& p_prefix) {
+    std::vector<std::string> Trie::contentWithPrefix(const std::string& p_prefix) const {
         return m_root->contentWithPrefix(p_prefix.c_str());
     }
 }
