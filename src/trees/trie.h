@@ -11,6 +11,7 @@
 #include <map>
 #include <vector>
 #include <string>
+#include <initializer_list>
 
 namespace project_euler_helper {
 
@@ -37,13 +38,21 @@ namespace project_euler_helper {
     public:
         Trie() : m_root{new TrieNode} {};
         Trie(const std::vector<std::string>& p_strings);
+        Trie(const std::initializer_list<std::string>& p_list);
         ~Trie();
 
-        void insert(const std::string& p_string);
+        Trie(const Trie& p_trie);
+        Trie& operator=(const Trie& p_trie);
 
-        bool contains(const std::string& p_string);
-        bool containsPrefix(const std::string& p_prefix);
-        std::vector<std::string> contentWithPrefix(const std::string& p_prefix);
+        Trie(Trie&& p_trie);
+        Trie& operator=(Trie&& p_trie);
+
+        void insert(const std::string& p_string);
+        void insert(const std::initializer_list<std::string>& p_list);
+
+        bool contains(const std::string& p_string) const;
+        bool containsPrefix(const std::string& p_prefix) const;
+        std::vector<std::string> contentWithPrefix(const std::string& p_prefix) const;
     };
 
     struct PrefixQueueItem {
