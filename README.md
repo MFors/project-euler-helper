@@ -41,7 +41,17 @@ b = project_euler_helper::number::isTriangleNumber(1533776805L); // true
 
 
 #### Trees: Trie
-Currently supports *insert*, *contains*, *containsPrefix* and *contentWithPrefix*. **contains(const std::string&)** returns true if the argument has been inserted into the trie while **containsPrefix(const std::string&)** returns true if the argument is a prefix of any inserted string. By definition any string is a prefix of itself. Finally, **contentWithPrefix(const std::string&)** returns a *std::vector&lt;std::string&gt;* of all strings in the trie with the argument prefix. 
+
+| Name | Arguments | Returns |
+| :---- | :---: | :--- |
+| insert | std::string | void |
+| insert | std::initializer_list<std::string> | void |
+| contains | std::string | bool |
+| containsPrefix | std::string | bool |
+| contentWithPrefix | std::string | std::vector&lt;std::string&gt; |
+
+
+**contains** returns true if the argument has been inserted into the trie while **containsPrefix** returns true if the argument is a prefix of any inserted string. By definition any string is a prefix of itself. Finally, **contentWithPrefix** returns a *std::vector&lt;std::string&gt;* of all strings in the trie with the argument prefix. 
 
 Example use below.
 
@@ -64,4 +74,13 @@ v = myPrefixTree.contentWithPrefix("jo");                         // {"johnny", 
 // Build init (build from vector of strings)
 std::vector<std::string> strings{"one", "squid", "pluto"};
 project_euler_helper::Trie myOtherPrefixTree{strings};
+
+// Build and insert std::initializer_list
+project_euler_helper::Trie myThirdPrefixTree{"a", "b," "c"};
+myThirdPrefixTree.insert({"d", "e", "f"});
+
+// Assignment works as expected
+myOtherPrefixTree = myThirdPrefixTree;
+myOtherPrefixTree.contains("squid"); // false
+myOtherPrefixTree.contains("d");     // true
 ```
