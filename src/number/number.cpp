@@ -119,7 +119,6 @@ namespace number {
         std::mt19937 generator(randDev());
         std::uniform_int_distribution<T> distr(1, p_n - 1);
 
-
         while(!(d % 2)) {
             ++s;
             d >>= 1;
