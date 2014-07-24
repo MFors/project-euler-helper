@@ -45,7 +45,7 @@ b = project_euler_helper::number::isTriangleNumber(1533776805L); // true
 | Name | Arguments | Returns |
 | :---- | :---: | :--- |
 | insert | std::string | void |
-| insert | std::initializer_list<std::string> | void |
+| insert | std::initializer_list&lt;std::string&gt; | void |
 | contains | std::string | bool |
 | containsPrefix | std::string | bool |
 | contentWithPrefix | std::string | std::vector&lt;std::string&gt; |
