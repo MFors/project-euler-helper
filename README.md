@@ -15,6 +15,10 @@ Contains several useful integral functions, most are templated for integral inpu
 |binarySum | T (std::is_integral) | T |
 |isPandigital | int n, int length | bool |
 |isTriangleNumber | T (std::is_integral) | bool |
+|isPentagonalNumber | T (std::is_integral) | bool |
+|isHexagonalNumber | T (std::is_integral) | bool |
+|powMod | T, T, T | T |
+|rabinMiller | T, int | bool |
 
 ```c++
 // Example use
@@ -37,6 +41,13 @@ b = project_euler_helper::number::isPandigital(987654321, 9); // true
 
 b = project_euler_helper::number::isTriangleNumber(7);           // false
 b = project_euler_helper::number::isTriangleNumber(1533776805L); // true
+
+b = project_euler_helper::number::isPentagonalNumber(35); // true
+b = project_euler_helper::number::isHexagonalNumber(15);  // true
+
+int result = project_euler_helper::number::powMod(2, 3, 3); // 2^3 mod 3 = 8 mod 3 = 2
+
+b = rabinMiller(2013, 2); // false
 ```
 
 
