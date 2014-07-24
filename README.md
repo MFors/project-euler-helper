@@ -47,7 +47,10 @@ b = project_euler_helper::number::isHexagonalNumber(15);  // true
 
 int result = project_euler_helper::number::powMod(2, 3, 3); // 2^3 mod 3 = 8 mod 3 = 2
 
-b = rabinMiller(2013, 2); // false (2013 is composite), note that 2 is the test accuracy
+// Rabin Miller (Miller Rabin) Primality Test
+// Input is candidate number and test accuracy (witness rounds).
+// Note that p prime implies always passing rabinMiller (one way implication)
+b = project_euler_helper::number::rabinMiller(2013, 2); // false (2013 is composite)
 ```
 
 
