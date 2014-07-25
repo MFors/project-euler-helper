@@ -7,6 +7,7 @@
     desc:     several integral functions
 */
 #include <type_traits>
+#include <vector>
 
 namespace project_euler_helper {
 namespace number {
@@ -42,5 +43,12 @@ namespace number {
 
     template<typename T, EnableIf<std::is_integral<T>> ... >
     bool isHexagonalNumber(T p_n);
+    
+    template<typename T, EnableIf<std::is_integral<T>> ... >
+    std::vector<T> allPrimesUpTo(T p_n);
+    
+    template<typename T, EnableIf<std::is_integral<T>> ... >
+    std::vector<T> factorizationOf(T p_n);
+    
 }
 }
