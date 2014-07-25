@@ -7,6 +7,9 @@
     desc:     several integral functions
 */
 #include "number.h"
+#include <cmath>
+#include <random>
+#include <boost/dynamic_bitset.hpp>
 
 namespace project_euler_helper {
 namespace number {
@@ -89,6 +92,69 @@ namespace number {
         double m = std::sqrt((p_n << 3) + 1) / 4;
         return (T)m == m;
     }
+    
+    template<typename T, EnableIf<std::is_integral<T>> ... >
+    std::vector<T> allPrimesUpTo(T p_n) {
+        std::vector<T> primes;
+
+        if(p_n < 2)
+            return primes;
+        primes.push_back((T)2);
+        if(p_n < 3)
+            return primes;
+        primes.push_back((T)3);
+        if(p_n < 5)
+            return primes;
+
+        T size, difference, offset, ptr, position, value, jump[2];
+
+        size = (p_n / 6);
+        difference = p_n - 6 * size;
+        size = (size << 1) - (!difference ? 1 : 0) + (difference == 5 ? 1 : 0);
+
+        boost::dynamic_bitset<> sieve(size);
+
+        for(boost::dynamic_bitset<>::size_type i = 0; i < sieve.size(); ++i) {
+            if(sieve[i])
+                continue;
+
+            offset = (i >> 1) + 1;
+            value = 6 * offset + ((i & 1) ? 1 : -1);
+            jump[0] = value + 2 * offset;
+            jump[1] = value - 2 * offset;
+            ptr = 0;
+            position = i;
+
+            while(position + jump[ptr] < (T)sieve.size()) {
+                position += jump[ptr];
+                sieve[position] = 1;
+                ptr ^= 1;
+            }
+
+        }
+
+        for(boost::dynamic_bitset<>::size_type i = 0; i < sieve.size(); ++i) {
+            if(!sieve[i]) {
+                primes.push_back(6 * ((i >> 1) + 1) + (i & 1 ? 1 : -1));
+            }
+        }
+
+        return primes;
+    }
+    
+    template<typename T, EnableIf<std::is_integral<T>> ... >
+    std::vector<T> factorizationOf(T p_n) {
+        std::vector<T> primes = allPrimesUpTo((T)std::sqrt(p_n)), result;
+        for(typename std::vector<T>::iterator prime = primes.begin(); prime != primes.end(); ++prime) {
+            while(!(p_n % *prime)) {
+                p_n /= *prime;
+                result.push_back(*prime);
+            }
+        }
+        if(p_n != 1)
+            result.push_back(p_n);
+        return result;
+    }    
     
     template<typename T, EnableIf<std::is_integral<T>> ... >
     T powMod(T p_base, T p_power, T p_mod) {
