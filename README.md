@@ -19,6 +19,8 @@ Contains several useful integral functions, most are templated for integral inpu
 |isHexagonalNumber | T (std::is_integral) | bool |
 |powMod | T, T, T | T |
 |rabinMiller | T, int | bool |
+|allPrimesUpTo | T | std::vector&lt;T&gt; |
+|factorizationOf | T | std::vector&lt;T&gt;|
 
 ```c++
 // Example use
@@ -51,6 +53,10 @@ int result = project_euler_helper::number::powMod(2, 3, 3); // 2^3 mod 3 = 8 mod
 // Input is candidate number and test accuracy (witness rounds).
 // Note that p prime implies always passing rabinMiller (one way implication)
 b = project_euler_helper::number::rabinMiller(2013, 2); // false (2013 is composite)
+
+std::vector<int> primesBelowTwenty = project_euler_helper::number::allPrimesUpTo(20); // {2, 3, 5, 7, 11, 13, 17, 19}
+
+std::vector<int> factors = project_euler_helper::number::factorizationOf(757120); // {2, 2, 2, 2, 2, 2, 2, 5, 7, 13, 13}
 ```
 
 
