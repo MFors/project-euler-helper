@@ -13,7 +13,7 @@ Contains several useful integral functions, most are templated for integral inpu
 |isBinaryPalindrome | T (std::is_integral) | bool |
 |digitalSum | T (std::is_integral) | T |
 |binarySum | T (std::is_integral) | T |
-|isPandigital | int n, int length | bool |
+|isPandigital | int n | bool |
 |isTriangleNumber | T (std::is_integral) | bool |
 |isPentagonalNumber | T (std::is_integral) | bool |
 |isHexagonalNumber | T (std::is_integral) | bool |
@@ -37,9 +37,9 @@ long m = project_euler_helper::number::digitalSum(1048L); // 13L
 
 n = project_euler_helper::number::binarySum(1048); // 3
 
-b = project_euler_helper::number::isPandigital(123, 3);       // true
-b = project_euler_helper::number::isPandigital(1233, 4);      // false
-b = project_euler_helper::number::isPandigital(987654321, 9); // true
+b = project_euler_helper::number::isPandigital(123);       // true
+b = project_euler_helper::number::isPandigital(1233);      // false
+b = project_euler_helper::number::isPandigital(987654321); // true
 
 b = project_euler_helper::number::isTriangleNumber(7);           // false
 b = project_euler_helper::number::isTriangleNumber(1533776805L); // true
