@@ -27,7 +27,7 @@ namespace number {
     template<typename T, EnableIf<std::is_integral<T>> ... >
     T binarySum(T n);
 
-    bool isPandigital(int n, int length);
+    bool isPandigital(int n);
     
     template<typename T, EnableIf<std::is_integral<T>> ... >
     T powMod(T p_base, T p_power, T p_mod);
