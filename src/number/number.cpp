@@ -61,16 +61,17 @@ namespace number {
     }
 
     // def: n is pandigital <=> 1..length<10 each occur once
-    bool isPandigital(int n, int length) {
-        int k = 1023, t = 0;
-        while(n > 0) {
-            t = 1 << (n % 10);
+    bool isPandigital(int p_n) {
+        int k = 1023, t = 0, r = 0;
+        while(p_n > 0) {
+            t = 1 << (p_n % 10);
             k ^= t;
             if(!(k & ~t) || !(k & 1))
                 return false;
-            n /= 10;
+            p_n /= 10;
+            ++r;
         }
-        return (k & ((1 << (length + 1)) - 1)) == 1;
+        return (k & ((1 << (r + 1)) - 1)) == 1;
     }
     
     template<typename T, EnableIf<std::is_integral<T>> ... >
