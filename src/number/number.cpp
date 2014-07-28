@@ -96,51 +96,67 @@ namespace number {
     
     template<typename T, EnableIf<std::is_integral<T>> ... >
     std::vector<T> allPrimesUpTo(T p_n) {
-        std::vector<T> primes;
-
+        // Eliminate trivial cases
         if(p_n < 2)
-            return primes;
-        primes.push_back((T)2);
+            return std::vector<T>{};
         if(p_n < 3)
-            return primes;
-        primes.push_back((T)3);
+            return std::vector<T>{2};
         if(p_n < 5)
-            return primes;
+            return std::vector<T>{2, 3};
 
-        T size, difference, offset, ptr, position, value, jump[2];
+        T size = (p_n / 6),
+          difference = (p_n - 6 * size),
+          offset,
+          ptr,
+          position,
+          value,
+          jump[2];
 
-        size = (p_n / 6);
-        difference = p_n - 6 * size;
+        T counter = 2;
+
         size = (size << 1) - (!difference ? 1 : 0) + (difference == 5 ? 1 : 0);
 
+        // Bit Sieve where 0 (default) <=> prime and 1 <=> composite
         boost::dynamic_bitset<> sieve(size);
 
-        for(boost::dynamic_bitset<>::size_type i = 0; i < sieve.size(); ++i) {
+        T sSize = (T)sieve.size(); // conversion cached for while-loop
+
+        for(auto i = 0; i < sieve.size(); ++i) {
             if(sieve[i])
                 continue;
-
+            ++counter;
             offset = (i >> 1) + 1;
             value = 6 * offset + ((i & 1) ? 1 : -1);
-            jump[0] = value + 2 * offset;
-            jump[1] = value - 2 * offset;
+            offset <<= 1;
+            jump[0] = value + offset;
+            jump[1] = value - offset;
             ptr = 0;
             position = i;
 
-            while(position + jump[ptr] < (T)sieve.size()) {
+            while(position + jump[ptr] < sSize) {
                 position += jump[ptr];
                 sieve[position] = 1;
                 ptr ^= 1;
             }
-
         }
+
+        T* primes = new T[counter];
+        primes[0] = 2;
+        primes[1] = 3;
+
+        T pos = 2;
 
         for(boost::dynamic_bitset<>::size_type i = 0; i < sieve.size(); ++i) {
             if(!sieve[i]) {
-                primes.push_back(6 * ((i >> 1) + 1) + (i & 1 ? 1 : -1));
+                primes[pos] = 6 * ((i >> 1) + 1) + (i & 1 ? 1 : - 1);
+                ++pos;
             }
         }
 
-        return primes;
+        std::vector<T> result(primes, primes + counter);
+        delete[] primes;
+
+        return result;
     }
     
     template<typename T, EnableIf<std::is_integral<T>> ... >
