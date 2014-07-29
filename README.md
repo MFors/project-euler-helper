@@ -7,20 +7,20 @@ Build using *-std=c++11*.
 #### Number
 Contains several useful integral functions, most are templated for integral input (return will always match input type if valid). Note that *pandigital* is defined in the project euler way, i.e. a number n such that the digits 1..len(n) < 10 are present exactly once.
 
-| Name | Arguments | Returns |
-| :---- | :---: | :--- |
-|isDecimalPalindrome | T (std::is_integral) | bool |
-|isBinaryPalindrome | T (std::is_integral) | bool |
-|digitalSum | T (std::is_integral) | T |
-|binarySum | T (std::is_integral) | T |
-|isPandigital | int n | bool |
-|isTriangleNumber | T (std::is_integral) | bool |
-|isPentagonalNumber | T (std::is_integral) | bool |
-|isHexagonalNumber | T (std::is_integral) | bool |
-|powMod | T, T, T | T |
-|rabinMiller | T, int | bool |
-|allPrimesUpTo | T | std::vector&lt;T&gt; |
-|factorizationOf | T | std::vector&lt;T&gt;|
+| Name | Arguments | Returns | Python Module? |
+| :---- | :---: | :---: | ---: |
+|isDecimalPalindrome | T (std::is_integral) | bool | no |
+|isBinaryPalindrome | T (std::is_integral) | bool | no |
+|digitalSum | T (std::is_integral) | T | no |
+|binarySum | T (std::is_integral) | T | no ¦
+|isPandigital | int n | bool | no |
+|isTriangleNumber | T (std::is_integral) | bool | no |
+|isPentagonalNumber | T (std::is_integral) | bool | no |
+|isHexagonalNumber | T (std::is_integral) | bool | no |
+|powMod | T, T, T | T | no |
+|rabinMiller | T, int | bool | no |
+|allPrimesUpTo | T | std::vector&lt;T&gt; | yes |
+|factorizationOf | T | std::vector&lt;T&gt;| no |
 
 ```c++
 // Example use
