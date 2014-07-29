@@ -60,7 +60,8 @@ std::vector<int> factors = project_euler_helper::number::factorizationOf(757120)
 ```
 
 ##### Python Module
-Build with make. Many functions are not converted as of yet. Example use:
+Build with make. Currently only has **allPrimesUpTo**, performance in terms of speed is roughly 560% compared to raw python implementation.
+Example use:
 ```Python
 import pe_helper_number as pe
 print len(pe.allPrimesUpTo(10 * 1000 ** 2)) #664579
