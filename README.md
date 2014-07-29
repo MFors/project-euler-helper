@@ -59,6 +59,13 @@ std::vector<int> primesBelowTwenty = project_euler_helper::number::allPrimesUpTo
 std::vector<int> factors = project_euler_helper::number::factorizationOf(757120); // {2, 2, 2, 2, 2, 2, 2, 5, 7, 13, 13}
 ```
 
+##### Python Module
+Build with make. Many functions are not converted as of yet. Example use:
+```Python
+import pe_helper_number as pe
+print len(pe.allPrimesUpTo(10 * 1000 ** 2)) #664579
+print pe.allPrimesUpTo(100) #[2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
+```
 
 #### Trees: Trie
 
