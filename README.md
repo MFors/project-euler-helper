@@ -4,7 +4,7 @@ The aim of this project is to create a nice Python module using boost.python and
 
 Build using *-std=c++11*.
 
-#### Number
+## Number
 Contains several useful integral functions, most are templated for integral input (return will always match input type if valid). Note that *pandigital* is defined in the project euler way, i.e. a number n such that the digits 1..len(n) < 10 are present exactly once.
 
 | Name | Arguments | Returns | Python Module? |
@@ -21,6 +21,8 @@ Contains several useful integral functions, most are templated for integral inpu
 |rabinMiller | T, int | bool | :x:|
 |allPrimesUpTo | T | std::vector&lt;T&gt; | :white_check_mark: |
 |factorizationOf | T | std::vector&lt;T&gt;| :x: |
+
+#### C++
 
 ```c++
 // Example use
@@ -59,7 +61,7 @@ std::vector<int> primesBelowTwenty = project_euler_helper::number::allPrimesUpTo
 std::vector<int> factors = project_euler_helper::number::factorizationOf(757120); // {2, 2, 2, 2, 2, 2, 2, 5, 7, 13, 13}
 ```
 
-##### Python Module
+#### Python Module
 Build with make. Currently only has **allPrimesUpTo**, performance in terms of speed is roughly 560% compared to raw python implementation.
 Example use:
 ```Python
@@ -68,7 +70,7 @@ print len(pe.allPrimesUpTo(10 * 1000 ** 2)) #664579
 print pe.allPrimesUpTo(100) #[2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
 ```
 
-#### Trees: Trie
+## Trie
 
 | Name | Arguments | Returns |
 | :---- | :---: | :--- |
@@ -81,7 +83,7 @@ print pe.allPrimesUpTo(100) #[2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
 
 **contains** returns true if the argument has been inserted into the trie while **containsPrefix** returns true if the argument is a prefix of any inserted string. By definition any string is a prefix of itself. Finally, **contentWithPrefix** returns a *std::vector&lt;std::string&gt;* of all strings in the trie with the argument prefix. 
 
-Example use below.
+#### C++
 
 ```c++
 // Default init (empty)
