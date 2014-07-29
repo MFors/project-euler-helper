@@ -23,7 +23,6 @@ Contains several useful integral functions, most are templated for integral inpu
 |factorizationOf | T | std::vector&lt;T&gt;| :x: |
 
 #### C++
-
 ```c++
 // Example use
 bool b;
@@ -71,7 +70,6 @@ print pe.allPrimesUpTo(100) #[2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
 ```
 
 ## Trie
-
 | Name | Arguments | Returns |
 | :---- | :---: | :--- |
 | insert | std::string | void |
@@ -84,7 +82,6 @@ print pe.allPrimesUpTo(100) #[2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
 **contains** returns true if the argument has been inserted into the trie while **containsPrefix** returns true if the argument is a prefix of any inserted string. By definition any string is a prefix of itself. Finally, **contentWithPrefix** returns a *std::vector&lt;std::string&gt;* of all strings in the trie with the argument prefix. 
 
 #### C++
-
 ```c++
 // Default init (empty)
 project_euler_helper::Trie myPrefixTree;
