@@ -9,18 +9,18 @@ Contains several useful integral functions, most are templated for integral inpu
 
 | Name | Arguments | Returns | Python Module? |
 | :---- | :---: | :---: | :---: |
-|isDecimalPalindrome | T (std::is_integral) | bool | :x: |
-|isBinaryPalindrome | T (std::is_integral) | bool | :x: |
-|digitalSum | T (std::is_integral) | T | :x: |
-|binarySum | T (std::is_integral) | T | :x: |
-|isPandigital | int n | bool | :x: |
-|isTriangleNumber | T (std::is_integral) | bool | :x: |
-|isPentagonalNumber | T (std::is_integral) | bool |:x: |
-|isHexagonalNumber | T (std::is_integral) | bool | :x: |
-|powMod | T, T, T | T | :x: |
-|rabinMiller | T, int | bool | :x:|
+|isDecimalPalindrome | T (std::is_integral) | bool | :white_check_mark: |
+|isBinaryPalindrome | T (std::is_integral) | bool | :white_check_mark: |
+|digitalSum | T (std::is_integral) | T | :white_check_mark: |
+|binarySum | T (std::is_integral) | T | :white_check_mark: |
+|isPandigital | int n | bool | :white_check_mark: |
+|isTriangleNumber | T (std::is_integral) | bool | :white_check_mark: |
+|isPentagonalNumber | T (std::is_integral) | bool |:white_check_mark: |
+|isHexagonalNumber | T (std::is_integral) | bool | :white_check_mark: |
+|powMod | T, T, T | T | :white_check_mark: |
+|rabinMiller | T, int | bool | :white_check_mark: |
 |allPrimesUpTo | T | std::vector&lt;T&gt; | :white_check_mark: |
-|factorizationOf | T | std::vector&lt;T&gt;| :x: |
+|factorizationOf | T | std::vector&lt;T&gt;| :white_check_mark: |
 
 #### C++
 ```c++
@@ -61,12 +61,15 @@ std::vector<int> factors = project_euler_helper::number::factorizationOf(757120)
 ```
 
 #### Python Module
-Build with make. Currently only has **allPrimesUpTo**, performance in terms of speed is roughly 560% compared to raw python implementation.
-Example use:
+Build with make. Everything is named exactly like the cpp lib. Example use:
 ```Python
 import pe_helper_number as pe
 print len(pe.allPrimesUpTo(10 * 1000 ** 2)) #664579
 print pe.allPrimesUpTo(30) #[2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
+
+# outputs 15 17 21 27 31 33
+print ' '.join([n for n in xrange(10, 40) if pe.isBinaryPalindrome(n])
+
 ```
 
 ## Trie
