@@ -83,7 +83,7 @@ namespace number {
 
     template<typename T, EnableIf<std::is_integral<T>> ... >
     bool isPentagonalNumber(T p_n) {
-        double m = std::sqrt(24 * m + 1);
+        double m = std::sqrt(24 * p_n + 1);
         p_n = (T)m;
         return p_n == m && (p_n % 6 == 5);
     }
