@@ -66,7 +66,7 @@ Example use:
 ```Python
 import pe_helper_number as pe
 print len(pe.allPrimesUpTo(10 * 1000 ** 2)) #664579
-print pe.allPrimesUpTo(100) #[2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
+print pe.allPrimesUpTo(30) #[2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
 ```
 
 ## Trie
