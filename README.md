@@ -85,7 +85,7 @@ print ' '.join([n for n in xrange(10, 40) if pe.isBinaryPalindrome(n)])
 **contains** returns true if the argument has been inserted into the trie while **containsPrefix** returns true if the argument is a prefix of any inserted string. By definition any string is a prefix of itself. Finally, **contentWithPrefix** returns a *std::vector&lt;std::string&gt;* of all strings in the trie with the argument prefix. 
 
 #### C++
-Current implementation uses std::map for memory optimization rather than speed. I will add a hTree version with unordered_map soon.
+Current implementation uses std::map for memory optimization rather than speed. I will add a hTree version with std::unordered_map soon.
 
 ```c++
 // Default init (empty)
