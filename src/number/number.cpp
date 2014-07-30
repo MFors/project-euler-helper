@@ -90,7 +90,7 @@ namespace number {
 
     template<typename T, EnableIf<std::is_integral<T>> ... >
     bool isHexagonalNumber(T p_n) {
-        double m = std::sqrt((p_n << 3) + 1) / 4;
+        double m = (std::sqrt((p_n << 3) + 1) + 1) / 4;
         return (T)m == m;
     }
     
